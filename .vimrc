@@ -1,232 +1,301 @@
 map ,pt <Esc>:%! perltidy -se<CR>
 map ,ptv <Esc>:'<,'>! perltidy -se<CR>
 
-" 挙動を vi 互換ではなく、Vim のデフォルト設定にする
-set nocompatible
-" 一旦ファイルタイプ関連を無効化する
-filetype off
-
-""""""""""""""""""""""""""""""
-" プラグインのセットアップ
-""""""""""""""""""""""""""""""
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" ファイルオープンを便利に
-NeoBundle 'Shougo/unite.vim'
-" Unite.vimで最近使ったファイルを表示できるようにする
-NeoBundle 'Shougo/neomru.vim'
-" ファイルをtree表示してくれる
-NeoBundle 'scrooloose/nerdtree'
-" Gitを便利に使う
-NeoBundle 'tpope/vim-fugitive'
-
-" Rails向けのコマンドを提供する
-NeoBundle 'tpope/vim-rails'
-" Ruby向けにendを自動挿入してくれる
-NeoBundle 'tpope/vim-endwise'
-
-" コメントON/OFFを手軽に実行
-NeoBundle 'tomtom/tcomment_vim'
-" シングルクオートとダブルクオートの入れ替え等
-NeoBundle 'tpope/vim-surround'
-
-" ログファイルを色づけしてくれる
-NeoBundle 'vim-scripts/AnsiEsc.vim'
-" 行末の半角スペースを可視化(うまく動かない？)
-NeoBundle 'bronson/vim-trailing-whitespace'
-" less用のsyntaxハイライト
-NeoBundle 'KohPoll/vim-less'
-
-" 余談: neocompleteは合わなかった。ctrl+pで補完するのが便利
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""
-" 各種オプションの設定
-""""""""""""""""""""""""""""""
-" タグファイルの指定(でもタグジャンプは使ったことがない)
-set tags=~/.tags
-" スワップファイルは使わない(ときどき面倒な警告が出るだけで役に立ったことがない)
-set noswapfile
-" カーソルが何行目の何列目に置かれているかを表示する
-set ruler
-" コマンドラインに使われる画面上の行数
-set cmdheight=2
-" エディタウィンドウの末尾から2行目にステータスラインを常時表示させる
-set laststatus=2
-" ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-" ステータス行に現在のgitブランチを表示する
-set statusline+=%{fugitive#statusline()}
-" ウインドウのタイトルバーにファイルのパス情報等を表示する
-set title
-" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
-set wildmenu
-" 入力中のコマンドを表示する
-set showcmd
-" バックアップディレクトリの指定(でもバックアップは使ってない)
-set backupdir=$HOME/.vimbackup
-" バッファで開いているファイルのディレクトリでエクスクローラを開始する(でもエクスプローラって使ってない)
-set browsedir=buffer
-" 小文字のみで検索したときに大文字小文字を無視する
-set smartcase
-" 検索結果をハイライト表示する
-set hlsearch
-" 暗い背景色に合わせた配色にする
-set background=dark
-" タブ入力を複数の空白入力に置き換える
-set expandtab
-" 検索ワードの最初の文字を入力した時点で検索を開始する
-set incsearch
-" 保存されていないファイルがあるときでも別のファイルを開けるようにする
-set hidden
-" 不可視文字を表示する
-set list
-" タブと行の続きを可視化する
-set listchars=tab:>\ ,extends:<
-" 行番号を表示する
-set number
-" 対応する括弧やブレースを表示する
-set showmatch
-" 改行時に前の行のインデントを継続する
-set autoindent
-" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-set smartindent
-" タブ文字の表示幅
-set tabstop=2
-" Vimが挿入するインデントの幅
-set shiftwidth=2
-" 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
-set smarttab
-" カーソルを行頭、行末で止まらないようにする
-set whichwrap=b,s,h,l,<,>,[,]
-" 構文毎に文字色を変化させる
 syntax on
-" カラースキーマの指定
-colorscheme desert
-" 行番号の色
-highlight LineNr ctermfg=darkyellow
-""""""""""""""""""""""""""""""
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 
-" grep検索の実行後にQuickFix Listを表示する
-autocmd QuickFixCmdPost *grep* cwindow
-
-" http://blog.remora.cx/2010/12/vim-ref-with-unite.html
-""""""""""""""""""""""""""""""
-" Unit.vimの設定
-""""""""""""""""""""""""""""""
-" 入力モードで開始する
-let g:unite_enable_start_insert=1
-" バッファ一覧
-noremap <C-P> :Unite buffer<CR>
-" ファイル一覧
-noremap <C-N> :Unite -buffer-name=file file<CR>
-" 最近使ったファイルの一覧
-noremap <C-Z> :Unite file_mru<CR>
-" sourcesを「今開いているファイルのディレクトリ」とする
-noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
-" ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-""""""""""""""""""""""""""""""
-
-" http://inari.hatenablog.com/entry/2014/05/05/231307
-""""""""""""""""""""""""""""""
-" 全角スペースの表示
-""""""""""""""""""""""""""""""
-function! ZenkakuSpace()
-    highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-endfunction
-
-if has('syntax')
-    augroup ZenkakuSpace
-        autocmd!
-        autocmd ColorScheme * call ZenkakuSpace()
-        autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
-    augroup END
-    call ZenkakuSpace()
-endif
-""""""""""""""""""""""""""""""
-
-" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/-vimrc-sample
-""""""""""""""""""""""""""""""
-" 挿入モード時、ステータスラインの色を変更
-""""""""""""""""""""""""""""""
-let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
-
-if has('syntax')
-  augroup InsertHook
+"-------------------------------------------------
+" Auto Reload
+"-------------------------------------------------
+" Set augroup.
+augroup MyAutoCmd
     autocmd!
-    autocmd InsertEnter * call s:StatusLine('Enter')
-    autocmd InsertLeave * call s:StatusLine('Leave')
-  augroup END
+augroup END
+
+if !has('gui_running') && !(has('win32') || has('win64'))
+    autocmd MyAutoCmd BufWritePost $MYVIMRC nested source $MYVIMRC
+else
+    autocmd MyAutoCmd BufWritePost $MYVIMRC source $MYVIMRC |
+                \if has('gui_running') | source $MYGVIMRC
+    autocmd MyAutoCmd BufWritePost $MYGVIMRC if has('gui_running') | source $MYGVIMRC
 endif
 
-let s:slhlcmd = ''
-function! s:StatusLine(mode)
-  if a:mode == 'Enter'
-    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-    silent exec g:hi_insert
-  else
-    highlight clear StatusLine
-    silent exec s:slhlcmd
-  endif
-endfunction
+"-------------------------------------------------
+" NeoBundle
+"-------------------------------------------------
+set nocompatible               " be iMproved
+filetype off                   " required!
+filetype plugin indent off     " required!
 
-function! s:GetHighlight(hi)
-  redir => hl
-  exec 'highlight '.a:hi
-  redir END
-  let hl = substitute(hl, '[\r\n]', '', 'g')
-  let hl = substitute(hl, 'xxx', '', '')
-  return hl
-endfunction
-""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""
-" 最後のカーソル位置を復元する
-""""""""""""""""""""""""""""""
-if has("autocmd")
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
-""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""
-" 自動的に閉じ括弧を入力
-""""""""""""""""""""""""""""""
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
-""""""""""""""""""""""""""""""
+NeoBundle 'amdt/vim-niji'
+NeoBundle 'einars/js-beautify'
+NeoBundle 'evidens/vim-twig'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'scrooloose/syntastic'
+if has('lua')
+    NeoBundle 'Shougo/neocomplete'
+else
+    NeoBundle 'Shougo/neocomplcache'
+endif
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'soh335/vim-symfony'
+NeoBundle 'sudo.vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-scripts/autodate.vim'
+NeoBundle 'YankRing.vim'
+NeoBundle 'JSON.vim'
 
-" filetypeの自動検出(最後の方に書いた方がいいらしい)
 filetype on
+filetype plugin indent on     " required!
+
+" neocomplcache
+" -------------------------------------
+let g:neocomplcache_enable_at_startup = 1
+" 大文字小文字区別の有効化
+let g:neocomplcache_smartcase = 1
+" キャメルケース補完の有効化
+let g:neocomplcache_enablecamelcasecompletion = 1
+" アンダーバー補完の有効化
+let g:neocomplcache_enableunderbarcompletion = 1
+" 補完対象キーワードの最小長
+let g:neocomplcache_min_syntax_length = 3
+" プラグイン毎の補完関数を呼び出す文字数
+let g:neocomplcache_plugincompletionlength = {
+  \ 'keyword_complete' : 2,
+  \ 'syntax_complete' : 2
+  \ }
+" ファイルタイプ毎の辞書ファイルの場所
+let g:neocomplcache_dictionary_filetype_lists = { 
+  \ 'default' : '', 
+  \ }
+" 補完候補が表示されている場合は確定。そうでない場合は改行
+inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
+" 補完をキャンセル
+inoremap <expr><C-e>  neocomplcache#close_popup()
+
+" neosnippet
+"-------------------------------------------------
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+
+" quick run
+"-------------------------------------------------
+"初期化
+let g:quickrun_config = {}
+
+"vimproc
+let g:quickrun_config['_'] = {}
+let g:quickrun_config['_']['runner'] = 'vimproc'
+let g:quickrun_config['_']['runner/vimproc/updatetime'] = 100
+
+""phpunit
+"augroup QuickRunPHPUnit
+"  autocmd!
+"  autocmd BufWinEnter,BufNewFile *Test.php set filetype=php.unit
+"augroup END
+"let g:quickrun_config['php.unit'] = {}
+""let g:quickrun_config['php.unit']['outputter/buffer/split'] = 'vertical 35'
+"let g:quickrun_config['php.unit']['command'] = 'phpunit'
+"let g:quickrun_config['php.unit']['cmdopt'] = ''
+"let g:quickrun_config['php.unit']['exec'] = '%c %o %s'
+
+"prove
+augroup QuickRunProve
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *.t set filetype=perl.unit
+augroup END
+let g:quickrun_config['perl.unit'] = {}
+let g:quickrun_config['perl.unit']['command'] = 'carton'
+let g:quickrun_config['perl.unit']['cmdopt'] = 'exec -- prove --verbose -Ilib'
+let g:quickrun_config['perl.unit']['exec'] = '%c %o %s'
+
+"perl debug
+let g:quickrun_config['perl'] = {}
+let g:quickrun_config['perl']['command'] = 'carton'
+let g:quickrun_config['perl']['cmdopt'] = 'exec -- perl -d ./local/bin/morbo index.pl'
+let g:quickrun_config['perl']['exec'] = '%c %o %s'
+
+"gosh
+let g:quickrun_config['scm'] = {}
+let g:quickrun_config['scm']['command'] = 'gosh'
+let g:quickrun_config['scm']['cmdopt'] = ''
+let g:quickrun_config['scm']['exec'] = '%c %o %s'
+
+"coffee
+let g:quickrun_config['coffee'] = {}
+let g:quickrun_config['coffee']['command'] = 'coffee'
+let g:quickrun_config['coffee']['cmdopt'] = ''
+let g:quickrun_config['coffee']['exec'] = '%c %o %s'
+
+
+" unite.vim
+"-------------------------------------------------
+"call unite#custom_default_action('file', 'tabopen')
+nnoremap <silent> <C-O><C-O> :<C-U>Unite -buffer-name=files file bookmark file/new<CR>
+nnoremap <silent> <C-O><C-F> :<C-U>UniteWithBufferDir -buffer-name=files file bookmark file/new<CR>
+nnoremap <silent> <C-O><C-N> :<C-U>Unite -buffer-name=files file/new<CR>
+nnoremap <silent> <C-O><C-H> :<C-U>Unite -buffer-name=files file_mru<CR>
+nnoremap <silent> <C-O :<C-U>Unite -buffer-name=files file_mru<CR>
+nnoremap <silent> <C-O><C-G> :<C-U>Unite -buffer-name=files buffer<CR>
+
+"-------------------------------------------------
+" setting
+"-------------------------------------------------
+set backspace=indent,eol,start
+set browsedir=buffer
+set clipboard=unnamed
+set cursorline
+set expandtab
+set ffs=unix
+set hidden
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set list
+set listchars=tab:>_,trail:^
+set nobackup
+set nocompatible
+set noswapfile
+set novisualbell
+set nowrapscan
+set number
+set pastetoggle=<F2>
+set shiftwidth=4
+set showmatch
+set smartcase
+set smarttab
+set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set tabstop=4
+set wildmode=list:longest
+set whichwrap=b,s,h,l,<,>,[,]
+
+""-------------------------------------------------------------------------------
+" Mapping <jump-tag>
+"-------------------------------------------------------------------------------
+" コマンド       ノーマルモード 挿入モード コマンドラインモード ビジュアルモード
+" map/noremap           @            -              -                  @
+" nmap/nnoremap         @            -              -                  -
+" imap/inoremap         -            @              -                  -
+" cmap/cnoremap         -            -              @                  -
+" vmap/vnoremap         -            -              -                  @
+" map!/noremap!         -            @              @                  -
+"-------------------------------------------------------------------------------
+" perl like express
+nnoremap / /\v
+vnoremap / /\v
+noremap
+noremap!
+noremap <BS>
+noremap! <BS>
+nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+nmap <silent> <C-{><C-{> :nohlsearch<CR><C-{>
+" in normal mode, ; -> :
+nnoremap ; :
+
+map ,pt <Esc>:%! perltidy -se<CR>
+map ,ptv <Esc>:'<,'>! perltidy -se<CR>
+map ,phf <Esc>:%! phpcbf --standard=psr2<CR>
+map ,phfv <Esc>:'<,'>! phpcbf --standard=psr2<CR>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html,php vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+"----------------------------------------------------
+" テンプレート補完
+"----------------------------------------------------
+autocmd BufNewFile * silent! 0r $HOME/.vim/template/skel.%:e
+autocmd BufNewFile,BufReadPost Makefile,*.snip silent! setl noexpandtab
+autocmd BufNewFile,BufReadPost *.html,*.rb,*.coffee,*.js,*.tx silent! setl shiftwidth=2 tabstop=2
+autocmd BufNewFile *.tx silent! setl ft=html
+autocmd BufNewFile,BufReadPost *.yml,*.yaml silent! setl ft=txt
+au BufNewFile,BufRead *.tx set filetype=html
+
+autocmd BufNewFile *.pm call s:pm_template()
+au! BufWritePost *.pm call s:check_package_name()
+
+"----------------------------------------------------
+" Additional Functions
+"----------------------------------------------------
+" Directory creation
+augroup vimrc-auto-mkdir  " {{{
+  autocmd!
+  autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+  function! s:auto_mkdir(dir, force)  " {{{
+    if !isdirectory(a:dir) && (a:force ||
+    \    input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+      call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+    endif
+  endfunction  " }}}
+augroup END  " }}}
+set ts=4
+
+" perl package name
+function! s:pm_template()
+    let path = substitute(expand('%'), '.*lib/', '', 'g')
+    let path = substitute(path, '[\\/]', '::', 'g')
+    let path = substitute(path, '\.pm$', '', 'g')
+
+    call append(0, 'package ' . path . ';')
+    call append(1, 'use common::sense;')
+    call append(2, '')
+    call append(3, '')
+    call append(4, '')
+    call append(5, '1;')
+    call cursor(6, 0)
+    " echomsg path
+endfunction
+
+function! s:get_package_name()
+    let mx = '^\s*package\s\+\([^ ;]\+\)'
+    for line in getline(1, 5)
+        if line =~ mx
+        return substitute(matchstr(line, mx), mx, '\1', '')
+        endif
+    endfor
+    return ""
+endfunction
+
+function! s:check_package_name()
+    let path = substitute(expand('%:p'), '\\', '/', 'g')
+    let name = substitute(s:get_package_name(), '::', '/', 'g') . '.pm'
+    if path[-len(name):] != name
+        echohl WarningMsg
+        echomsg "ぱっけーじめいと、ほぞんされているぱすが、ちがうきがします！"
+        echomsg "ちゃんとなおしてください＞＜"
+        echohl None
+    endif
+endfunction
+
+" syntastic
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_php_checkers = ["phpcs"]
+let g:syntastic_php_phpcs_args="--standard=psr2"
+
+" neosnippet
+let s:my_snippet = '~/.snippet_mine/'
+let g:neosnippet#snippets_directory = s:my_snippet
