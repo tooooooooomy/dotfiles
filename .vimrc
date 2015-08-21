@@ -1,6 +1,3 @@
-map ,pt <Esc>:%! perltidy -se<CR>
-map ,ptv <Esc>:'<,'>! perltidy -se<CR>
-
 syntax on
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
@@ -30,9 +27,11 @@ filetype plugin indent off     " required!
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'amdt/vim-niji'
 NeoBundle 'einars/js-beautify'
 NeoBundle 'evidens/vim-twig'
@@ -60,6 +59,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/autodate.vim'
 NeoBundle 'YankRing.vim'
 NeoBundle 'JSON.vim'
+
+call neobundle#end()
 
 filetype on
 filetype plugin indent on     " required!
