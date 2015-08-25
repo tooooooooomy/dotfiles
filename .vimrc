@@ -27,11 +27,9 @@ filetype plugin indent off     " required!
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'amdt/vim-niji'
 NeoBundle 'einars/js-beautify'
 NeoBundle 'evidens/vim-twig'
@@ -159,7 +157,7 @@ nnoremap <silent> <C-O><C-O> :<C-U>Unite -buffer-name=files file bookmark file/n
 nnoremap <silent> <C-O><C-F> :<C-U>UniteWithBufferDir -buffer-name=files file bookmark file/new<CR>
 nnoremap <silent> <C-O><C-N> :<C-U>Unite -buffer-name=files file/new<CR>
 nnoremap <silent> <C-O><C-H> :<C-U>Unite -buffer-name=files file_mru<CR>
-nnoremap <silent> <C-O :<C-U>Unite -buffer-name=files file_mru<CR>
+nnoremap <silent> <C-O> :<C-U>Unite -buffer-name=files file_mru<CR>
 nnoremap <silent> <C-O><C-G> :<C-U>Unite -buffer-name=files buffer<CR>
 
 "-------------------------------------------------
@@ -208,10 +206,10 @@ set whichwrap=b,s,h,l,<,>,[,]
 " perl like express
 nnoremap / /\v
 vnoremap / /\v
-noremap
-noremap!
-noremap <BS>
-noremap! <BS>
+noremap  
+noremap!  
+noremap <BS> 
+noremap! <BS> 
 nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 nmap <silent> <C-{><C-{> :nohlsearch<CR><C-{>
 " in normal mode, ; -> :
