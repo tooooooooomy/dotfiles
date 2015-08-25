@@ -57,6 +57,9 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/autodate.vim'
 NeoBundle 'YankRing.vim'
 NeoBundle 'JSON.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-surround'
 
 call neobundle#end()
 
@@ -298,3 +301,23 @@ let g:syntastic_php_phpcs_args="--standard=psr2"
 " neosnippet
 let s:my_snippet = '~/.snippet_mine/'
 let g:neosnippet#snippets_directory = s:my_snippet
+
+""""""""""""""""""""""""""""""
+" 自動的に閉じ括弧を入力
+""""""""""""""""""""""""""""""
+imap { {}<LEFT>
+imap [ []<LEFT>
+imap ( ()<LEFT>
+""""""""""""""""""""""""""""""
+
+" スワップファイルは使わない
+set noswapfile
+" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
+set wildmenu
+" 入力中のコマンドを表示する
+set showcmd
+" バックアップディレクトリの指定(でもバックアップは使ってない))
+set backupdir=$HOME/.vimbackup
+" バッファで開いているファイルのディレクトリでエクスクローラを開始する(でもエクスプローラって使ってない))
+set browsedir=buffer
+
