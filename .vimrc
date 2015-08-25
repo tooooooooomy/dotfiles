@@ -239,6 +239,7 @@ au BufNewFile,BufRead *.tx set filetype=html
 autocmd BufNewFile *.pm call s:pm_template()
 au! BufWritePost *.pm call s:check_package_name()
 
+autocmd! BufNewFile,BufRead *.psgi setf perl
 "----------------------------------------------------
 " Additional Functions
 "----------------------------------------------------
