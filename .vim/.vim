@@ -1,1 +1,1 @@
-/Users/kazu9su/dotfiles/.vim
+/Users/kazushige.tominaga/dotfiles/.vim
