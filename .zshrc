@@ -148,10 +148,13 @@ setopt hist_ignore_space    # start [space], no history
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
-bindkey '^R' history-incremental-search-backward
-
+bindkey '^p' history-beginning-search-backward
+bindkey '^n' history-beginning-search-forward
+# bindkey '^r' history-incremental-search-backward
+bindkey '^r' \
+    history-incremental-pattern-search-backward
+bindkey '^s' \
+    history-incremental-pattern-search-forward
 
 
 ###################################################
@@ -229,3 +232,5 @@ setopt NO_FLOW_CONTROL
 
 #beep音を鳴らさない
 setopt NO_BEEP
+
+zstyle ':completion:*:default' menu select=2
