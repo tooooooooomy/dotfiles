@@ -6,6 +6,8 @@
 # http://shigeya.org/blog/archives/2008/06/subversion-15-zsh-fix.html
 fpath=(${ZDOTDIR}/function $HOME/.zsh/functions $fpath)
 
+fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
+
 ## auto complete smartly
 autoload -Uz compinit
 compinit -u

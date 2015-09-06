@@ -129,3 +129,4 @@ echo -ne   '\e]4;7;#e6e6e6\a' # White
 echo -ne  '\e]4;15;#eeeeee\a' # BoldWhite
 
 umask 0002
+source ~/.git-completion.bash
