@@ -7,7 +7,7 @@
 fpath=(${ZDOTDIR}/function $HOME/.zsh/functions $fpath)
 
 ## auto complete smartly
-autoload -U compinit
+autoload -Uz compinit
 compinit -u
 
 ##################################################
@@ -161,6 +161,9 @@ bindkey '^R' history-incremental-search-backward
 ## vi like
 #bindkey -v
 
+## emac like
+bindkey -e
+
 ## options
 setopt auto_cd          # auto cd
 setopt auto_pushd       # $ cd -[TAB]
@@ -210,3 +213,19 @@ fi
 alias screen='screen -U'
 zstyle ':completion:*:sudo:*' command-path $PATH
 umask 0002
+
+
+##単語の区切り設定
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars " =/;@{},|"
+zstyle ':zle:*' word-style unspecified
+
+# ^Dでzshを終了しない
+setopt IGNORE_EOF
+
+#^Q/^Sのフローコントロールを無効にする
+setopt NO_FLOW_CONTROL
+
+#beep音を鳴らさない
+setopt NO_BEEP
