@@ -7,3 +7,4 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zshenv ~/.zshenv
 ln -sf ~/dotfiles/.zsh ~/.zsh
 ln -sf ~/dotfiles/.git-completion.bash ~/.git-completion.bash
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf

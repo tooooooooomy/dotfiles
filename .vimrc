@@ -60,6 +60,7 @@ NeoBundle 'JSON.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'maksimr/vim-jsbeautify'
 
 call neobundle#end()
 
@@ -225,6 +226,10 @@ map ,phfv <Esc>:'<,'>! phpcbf --standard=psr2<CR>
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType html,php vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+"=== JSON tidy
+map ,jt <Esc>:%call JsBeautify()<CR>
+map ,jtv <Esc>:'<,'>call JsBeautify()<CR>
 
 "----------------------------------------------------
 " テンプレート補完
