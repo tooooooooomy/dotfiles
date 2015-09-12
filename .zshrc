@@ -236,3 +236,6 @@ setopt NO_FLOW_CONTROL
 setopt NO_BEEP
 
 zstyle ':completion:*:default' menu select=2
+
+#Go
+export GOROOT=/usr/local/go

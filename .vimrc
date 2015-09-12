@@ -61,6 +61,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 
