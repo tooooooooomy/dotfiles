@@ -196,6 +196,7 @@ set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set tabstop=4
 set wildmode=list:longest
 set whichwrap=b,s,h,l,<,>,[,]
+set tw=0
 
 ""-------------------------------------------------------------------------------
 " Mapping <jump-tag>
