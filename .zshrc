@@ -215,6 +215,11 @@ if [ -d $HOME/.anyenv/bin ]; then
     done
 fi
 
+if [ -d $HOME/.gem/ruby/2.0.0/bin ]; then
+    export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
+fi
+
+
 alias screen='screen -U'
 zstyle ':completion:*:sudo:*' command-path $PATH
 umask 0002
