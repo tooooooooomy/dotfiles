@@ -35,7 +35,6 @@ NeoBundle 'einars/js-beautify'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'scrooloose/syntastic'
@@ -62,8 +61,17 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'moll/vim-node'
+NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'thinca/vim-quickrun'
+:setl omnifunc=jscomplete#CompleteJS
 
-call neobundle#end()
+if has('vim_starting')
+  call neobundle#end()
+endif
+
 
 filetype on
 filetype plugin indent on     " required!
@@ -148,13 +156,6 @@ let g:quickrun_config['scm']['command'] = 'gosh'
 let g:quickrun_config['scm']['cmdopt'] = ''
 let g:quickrun_config['scm']['exec'] = '%c %o %s'
 
-"coffee
-let g:quickrun_config['coffee'] = {}
-let g:quickrun_config['coffee']['command'] = 'coffee'
-let g:quickrun_config['coffee']['cmdopt'] = ''
-let g:quickrun_config['coffee']['exec'] = '%c %o %s'
-
-
 " unite.vim
 "-------------------------------------------------
 "call unite#custom_default_action('file', 'tabopen')
@@ -238,9 +239,9 @@ map ,jtv <Esc>:'<,'>call JsBeautify()<CR>
 "----------------------------------------------------
 autocmd BufNewFile * silent! 0r $HOME/.vim/template/skel.%:e
 autocmd BufNewFile,BufReadPost Makefile,*.snip silent! setl noexpandtab
-autocmd BufNewFile,BufReadPost *.html,*.rb,*.coffee,*.js,*.tx silent! setl shiftwidth=2 tabstop=2
 autocmd BufNewFile *.tx silent! setl ft=html
 autocmd BufNewFile,BufReadPost *.yml,*.yaml silent! setl ft=txt
+autocmd BufNewFile,BufReadPost *.html,*.rb,*.coffee,*.js,*.tx silent! setl shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.tx set filetype=html
 
 autocmd BufNewFile *.pm call s:pm_template()
