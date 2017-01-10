@@ -250,3 +250,6 @@ source ~/.nvm/nvm.sh
 
 #node
 export PATH=$PATH:./node_modules/.bin
+
+#racket(lisp)
+export PATH=$PATH:/Applications/Racket\ v6.7/bin
