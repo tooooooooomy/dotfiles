@@ -11,6 +11,9 @@
 	st = status
 	br = branch
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
+    ctags = !.git/hooks/ctags
 [core]
 	filemode = false
 	autocrlf = false
+[init]
+	templatedir = ~/.git
