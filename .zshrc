@@ -215,8 +215,8 @@ if [ -d $HOME/.anyenv/bin ]; then
     done
 fi
 
-if [ -d $HOME/.gem/ruby/2.0.0/bin ]; then
-    export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
+if [ -d /usr/local/anyenv/envs/rbenv/shims ]; then
+    export PATH="/usr/local/anyenv/envs/rbenv/shims:$PATH"
 fi
 
 
