@@ -36,6 +36,13 @@ for (@files) {
             not grep { $_ eq $file } @ignore
             } glob ".config/*";
     }
+    elsif ($_ eq '.git_template') {
+        if (not -f "$ENV{'HOME'}/.git") {
+            `cp -r $_ $ENV{'HOME'}/.git`
+        } else {
+            `cp -r $_/* $ENV{'HOME'}/.git/`;
+        }
+    }
     else {
         symbolic_link("$Bin/$_", "$ENV{'HOME'}/$_");
     }

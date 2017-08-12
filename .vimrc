@@ -64,6 +64,8 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'thinca/vim-themis'
+
 :setl omnifunc=jscomplete#CompleteJS
 
 if has('vim_starting')
