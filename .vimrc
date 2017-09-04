@@ -64,6 +64,10 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'vim-jp/vital.vim'
+NeoBundle 'thinca/vim-themis'
+NeoBundle 'kazu9su/lets-enjoy-vim-script'
+NeoBundle 'kchmck/vim-coffee-script'
 :setl omnifunc=jscomplete#CompleteJS
 
 if has('vim_starting')
@@ -192,7 +196,6 @@ set showmatch
 set smartcase
 set smarttab
 set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
-set tabstop=4
 set wildmode=list:longest
 set whichwrap=b,s,h,l,<,>,[,]
 set tw=0
@@ -320,3 +323,5 @@ set backupdir=$HOME/.vimbackup
 " バッファで開いているファイルのディレクトリでエクスクローラを開始する(でもエクスプローラって使ってない))
 set browsedir=buffer
 
+" coffee
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
