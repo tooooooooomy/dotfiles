@@ -245,9 +245,6 @@ zstyle ':completion:*:default' menu select=2
 #Go
 export GOROOT=/usr/local/go
 
-#nvm
-source ~/.nvm/nvm.sh
-
 #node
 export PATH=$PATH:./node_modules/.bin
 
