@@ -1,0 +1,102 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'amdt/vim-niji'
+
+[[plugins]]
+repo = 'einars/js-beautify'
+
+[[plugins]]
+repo = 'evidens/vim-twig'
+
+[[plugins]]
+repo = 'groenewege/vim-less'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+
+[[plugins]]
+repo = 'maksimr/vim-jsbeautify'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc'
+
+[[plugins]]
+repo = 'sudo.vim'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'vim-scripts/autodate.vim'
+
+[[plugins]]
+repo = 'YankRing.vim'
+
+[[plugins]]
+repo = 'JSON.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'maksimr/vim-jsbeautify'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+
+[[plugins]]
+repo = 'vim-jp/vital.vim'
+
+[[plugins]]
+repo = 'thinca/vim-themis'
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+

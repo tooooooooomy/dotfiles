@@ -18,63 +18,6 @@ else
     autocmd MyAutoCmd BufWritePost $MYGVIMRC if has('gui_running') | source $MYGVIMRC
 endif
 
-"-------------------------------------------------
-" NeoBundle
-"-------------------------------------------------
-set nocompatible               " be iMproved
-filetype off                   " required!
-filetype plugin indent off     " required!
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#begin(expand('~/.vim/bundle/'))
-endif
-
-NeoBundle 'amdt/vim-niji'
-NeoBundle 'einars/js-beautify'
-NeoBundle 'evidens/vim-twig'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'scrooloose/syntastic'
-if has('lua')
-    NeoBundle 'Shougo/neocomplete'
-else
-    NeoBundle 'Shougo/neocomplcache'
-endif
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'sudo.vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vim-scripts/autodate.vim'
-NeoBundle 'YankRing.vim'
-NeoBundle 'JSON.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'vim-jp/vital.vim'
-NeoBundle 'thinca/vim-themis'
-NeoBundle 'kazu9su/lets-enjoy-vim-script'
-NeoBundle 'kchmck/vim-coffee-script'
-:setl omnifunc=jscomplete#CompleteJS
-
-if has('vim_starting')
-  call neobundle#end()
-endif
-
-
 filetype on
 filetype plugin indent on     " required!
 
@@ -325,3 +268,40 @@ set browsedir=buffer
 
 " coffee
 au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
