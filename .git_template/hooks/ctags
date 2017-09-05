@@ -3,4 +3,4 @@ set -e
 cd "$(dirname "${BASH_SOURCE:-$0}")"; cd ../../
 trap "rm -f .git/tags.$$" EXIT
 ctags -f .git/tags.$$
-mv .git/tags.$$ .git/tags)"
+mv .git/tags.$$ .git/tags
