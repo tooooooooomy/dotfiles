@@ -37,10 +37,16 @@ for (@files) {
             } glob ".config/*";
     }
     elsif ($_ eq '.git_template') {
-        if (not -f "$ENV{'HOME'}/.git") {
+        if (not -d "$ENV{'HOME'}/.git") {
             `cp -r $_ $ENV{'HOME'}/.git`
         } else {
-            `cp -r $_/* $ENV{'HOME'}/.git/`;
+            if (not -d "$ENV{'HOME'}/.git/hooks") {
+                `mkdir $ENV{'HOME'}/.git/hooks`
+            }
+
+            if (not -f "$ENV{'HOME'}/.git/hooks/ctags") {
+                `cp $_/hooks/ctags $ENV{'HOME'}/.git/hooks/`;
+            }
         }
     }
     else {
