@@ -99,3 +99,6 @@ repo = 'einars/js-beautify'
 
 [[plugins]]
 repo = 'vim-scripts/JSON.vim'
+
+[[plugins]]
+repo = 'vim-perl/vim-perl'
