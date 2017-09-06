@@ -2,10 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'amdt/vim-niji'
-
-[[plugins]]
-repo = 'einars/js-beautify'
+repo = 'losingkeys/vim-niji'
 
 [[plugins]]
 repo = 'evidens/vim-twig'
@@ -44,7 +41,7 @@ repo = 'Shougo/unite.vim'
 repo = 'Shougo/vimproc'
 
 [[plugins]]
-repo = 'sudo.vim'
+repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
 repo = 'thinca/vim-ref'
@@ -59,10 +56,7 @@ repo = 'tpope/vim-fugitive'
 repo = 'vim-scripts/autodate.vim'
 
 [[plugins]]
-repo = 'YankRing.vim'
-
-[[plugins]]
-repo = 'JSON.vim'
+repo = 'vim-scripts/YankRing.vim'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -100,3 +94,8 @@ repo = 'thinca/vim-themis'
 [[plugins]]
 repo = 'kchmck/vim-coffee-script'
 
+[[plugins]]
+repo = 'einars/js-beautify'
+
+[[plugins]]
+repo = 'vim-scripts/JSON.vim'
