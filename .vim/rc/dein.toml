@@ -102,3 +102,6 @@ repo = 'vim-scripts/JSON.vim'
 
 [[plugins]]
 repo = 'vim-perl/vim-perl'
+
+[[plugins]]
+repo = 'shougo/neocomplcache'
