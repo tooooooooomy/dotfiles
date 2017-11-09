@@ -105,3 +105,6 @@ repo = 'vim-perl/vim-perl'
 
 [[plugins]]
 repo = 'shougo/neocomplcache'
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
