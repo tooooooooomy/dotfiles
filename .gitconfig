@@ -3,8 +3,8 @@
 	branch = auto
 	ui = auto
 [user]
-	name = Tomy
-	email = kazushige.tominaga@mkt-apps.com
+	name = tommy
+	email = kazu9su@gmail.com
 [alias]
 	co = checkout
 	ci = commit

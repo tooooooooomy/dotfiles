@@ -201,6 +201,7 @@ plugins=(git osx ruby)
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
+alias be='bundle exec'
 
 ###################################################
 # own setting

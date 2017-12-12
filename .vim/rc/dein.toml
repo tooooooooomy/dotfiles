@@ -108,3 +108,6 @@ repo = 'shougo/neocomplcache'
 
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
+
+[[plugins]]
+repo = 'thinca/vim-vparsec'
