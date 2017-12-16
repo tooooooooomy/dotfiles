@@ -1,3 +1,4 @@
 .netrwhist
 backup
 .vim/bundle/*
+.DS_Store
