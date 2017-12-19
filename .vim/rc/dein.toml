@@ -111,3 +111,12 @@ repo = 'lambdalisue/gina.vim'
 
 [[plugins]]
 repo = 'thinca/vim-vparsec'
+
+[[plugins]]
+repo = 'kana/vim-submode'
+
+[[plugins]]
+repo = 'kana/vim-smartword'
+
+[[plugins]]
+repo = 'roman/golden-ratio'

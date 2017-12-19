@@ -98,7 +98,6 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-
 " quick run
 "-------------------------------------------------
 "初期化
@@ -183,6 +182,7 @@ set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set wildmode=list:longest
 set whichwrap=b,s,h,l,<,>,[,]
 set tw=0
+set noequalalways
 
 ""-------------------------------------------------------------------------------
 " Mapping <jump-tag>
