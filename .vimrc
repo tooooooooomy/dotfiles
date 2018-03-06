@@ -226,7 +226,7 @@ autocmd BufNewFile * silent! 0r $HOME/.vim/template/skel.%:e
 autocmd BufNewFile,BufReadPost Makefile,*.snip silent! setl noexpandtab
 autocmd BufNewFile *.tx silent! setl ft=html
 autocmd BufNewFile,BufReadPost *.yml,*.yaml silent! setl ft=txt
-autocmd BufNewFile,BufReadPost *.html,*.rb,*.coffee,*.js,*.tx silent! setl shiftwidth=2 tabstop=2
+autocmd BufNewFile,BufReadPost *.html,*.rb,*.coffee,*.js,*.tx,*.erb silent! setl shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.tx set filetype=html
 
 autocmd BufNewFile *.pm call s:pm_template()
