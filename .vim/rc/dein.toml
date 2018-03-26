@@ -120,3 +120,9 @@ repo = 'kana/vim-smartword'
 
 [[plugins]]
 repo = 'roman/golden-ratio'
+
+[[plugins]]
+repo = 'ngmy/vim-rubocop'
+
+[[plugins]]
+repo = 'scrooloose/syntastic.git'
