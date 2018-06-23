@@ -38,7 +38,8 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
-repo = 'Shougo/vimproc'
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'

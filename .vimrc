@@ -55,8 +55,8 @@ if dein#load_state(s:dein_dir)
 endif
 
 " vimprocだけは最初にインストールしてほしい
-if dein#check_install(['vimproc'])
-  call dein#install(['vimproc'])
+if dein#check_install(['vimproc.vim'])
+  call dein#install(['vimproc.vim'])
 endif
 " もし、未インストールものものがあったらインストール
 if dein#check_install()
