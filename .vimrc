@@ -55,9 +55,9 @@ if dein#load_state(s:dein_dir)
 endif
 
 " vimprocだけは最初にインストールしてほしい
-if dein#check_install(['vimproc.vim'])
-  call dein#install(['vimproc.vim'])
-endif
+"if dein#check_install(['vimproc.vim'])
+"  call dein#install(['vimproc.vim'])
+"endif
 " もし、未インストールものものがあったらインストール
 if dein#check_install()
   call dein#install()
@@ -326,3 +326,4 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'passive_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers= ['rubocop']
 let g:vimrubocop_config = './.rubocop.yml'
 nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
+autocmd vimenter * NERDTree

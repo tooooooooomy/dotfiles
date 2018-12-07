@@ -38,7 +38,7 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
+repo = 'Shougo/vimproc'
 build = 'make'
 
 [[plugins]]
@@ -127,3 +127,6 @@ repo = 'ngmy/vim-rubocop'
 
 [[plugins]]
 repo = 'scrooloose/syntastic.git'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'

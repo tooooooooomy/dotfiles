@@ -130,3 +130,5 @@ echo -ne  '\e]4;15;#eeeeee\a' # BoldWhite
 
 umask 0002
 source ~/.git-completion.bash
+
+export PATH="$HOME/.cargo/bin:$PATH"
