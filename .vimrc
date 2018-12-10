@@ -326,4 +326,16 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'passive_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers= ['rubocop']
 let g:vimrubocop_config = './.rubocop.yml'
 nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
-autocmd vimenter * NERDTree
+
+" NERDTree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+noremap <Leader>      <Nop>
+noremap <LocalLeader> <Nop>
+let g:mapleader = "\<Space>"
+let g:maplocalleader = '\'
+
+" gina.vim
+nnoremap <Leader>aa :<C-u>Gina status<CR>
+nnoremap <Leader>ac :<C-u>Gina commit<CR>
+
