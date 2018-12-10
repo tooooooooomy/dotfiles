@@ -1,5 +1,5 @@
 HOMEBREW=$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)
-all: install
+all: install prezto
 
 help:
 	cat Makefile
@@ -24,3 +24,8 @@ brew_install:
 brew_dump:
 	rm -rf Brewfile
 	brew bundle dump
+
+prezto:
+	for rcfile in ${ZDOTDIR:-$HOME}/.zprezto/runcoms/^README.md\(.N\); do\
+  		ln -snf $rcfile ${ZDOTDIR:-$HOME}/.${rcfile:t}
+	done

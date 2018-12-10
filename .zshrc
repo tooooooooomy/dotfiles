@@ -1,6 +1,10 @@
 ###################################################
 # [BASIC SETTING] http://news.mynavi.jp/column/zsh/index.html
 ###################################################
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 ## auto complete functions
 # http://shigeya.org/blog/archives/2008/06/subversion-15-zsh-fix.html
@@ -253,3 +257,5 @@ export PATH=$PATH:./node_modules/.bin
 export PATH=$PATH:/Applications/Racket\ v6.7/bin
 
 export PATH=$PATH:/usr/local/bin:/usr/bin
+
+setopt EXTENDED_GLOB
