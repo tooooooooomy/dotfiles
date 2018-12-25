@@ -63,6 +63,13 @@ if dein#check_install()
   call dein#install()
 endif
 
+call dein#add('Shougo/deoplete.nvim')
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+let g:deoplete#enable_at_startup = 1
+
 filetype on
 filetype plugin indent on     " required!
 

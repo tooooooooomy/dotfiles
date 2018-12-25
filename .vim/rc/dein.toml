@@ -23,9 +23,6 @@ repo = 'mattn/emmet-vim'
 repo = 'scrooloose/syntastic'
 
 [[plugins]]
-repo = 'Shougo/neocomplete'
-
-[[plugins]]
 repo = 'Shougo/neosnippet'
 
 [[plugins]]
@@ -105,9 +102,6 @@ repo = 'vim-scripts/JSON.vim'
 repo = 'vim-perl/vim-perl'
 
 [[plugins]]
-repo = 'shougo/neocomplcache'
-
-[[plugins]]
 repo = 'lambdalisue/gina.vim'
 
 [[plugins]]
@@ -130,3 +124,10 @@ repo = 'scrooloose/syntastic.git'
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
