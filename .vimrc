@@ -347,3 +347,5 @@ let g:maplocalleader = '\'
 nnoremap <Leader>aa :<C-u>Gina status<CR>
 nnoremap <Leader>ac :<C-u>Gina commit<CR>
 
+" 履歴の数を調整
+set history=200
