@@ -311,6 +311,7 @@ let g:neosnippet#snippets_directory = s:my_snippet
 set noswapfile
 " コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
 set wildmenu
+set wildmode=full
 " 入力中のコマンドを表示する
 set showcmd
 " バックアップディレクトリの指定(でもバックアップは使ってない))
