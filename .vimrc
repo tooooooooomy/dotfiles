@@ -1,6 +1,8 @@
 syntax on
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
+let &t_Co=256
+colorscheme iceberg
 
 "-------------------------------------------------
 " Auto Reload
@@ -324,7 +326,7 @@ au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 
 "rubocop
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1

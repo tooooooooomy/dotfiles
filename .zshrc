@@ -259,3 +259,7 @@ export PATH=$PATH:/Applications/Racket\ v6.7/bin
 export PATH=$PATH:/usr/local/bin:/usr/bin
 
 setopt EXTENDED_GLOB
+
+#Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
