@@ -75,31 +75,6 @@ let g:deoplete#enable_at_startup = 1
 filetype on
 filetype plugin indent on     " required!
 
-" neocomplcache
-" -------------------------------------
-let g:neocomplcache_enable_at_startup = 1
-" 大文字小文字区別の有効化
-let g:neocomplcache_smartcase = 1
-" キャメルケース補完の有効化
-let g:neocomplcache_enablecamelcasecompletion = 1
-" アンダーバー補完の有効化
-let g:neocomplcache_enableunderbarcompletion = 1
-" 補完対象キーワードの最小長
-let g:neocomplcache_min_syntax_length = 3
-" プラグイン毎の補完関数を呼び出す文字数
-let g:neocomplcache_plugincompletionlength = {
-  \ 'keyword_complete' : 2,
-  \ 'syntax_complete' : 2
-  \ }
-" ファイルタイプ毎の辞書ファイルの場所
-let g:neocomplcache_dictionary_filetype_lists = { 
-  \ 'default' : '', 
-  \ }
-" 補完候補が表示されている場合は確定。そうでない場合は改行
-inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
-" 補完をキャンセル
-inoremap <expr><C-e>  neocomplcache#close_popup()
-
 " neosnippet
 "-------------------------------------------------
 " Plugin key-mappings.
@@ -133,9 +108,9 @@ let g:quickrun_config['_']['runner/vimproc/updatetime'] = 100
 "let g:quickrun_config['php.unit']['exec'] = '%c %o %s'
 
 "prove
-augroup QuickRunProve
-  autocmd!
-  autocmd BufWinEnter,BufNewFile *.t set filetype=perl.unit
+"augroup QuickRunProve
+"  autocmd!
+"  autocmd BufWinEnter,BufNewFile *.t set filetype=perl.unit
 augroup END
 let g:quickrun_config['perl.unit'] = {}
 let g:quickrun_config['perl.unit']['command'] = 'carton'
@@ -345,9 +320,8 @@ noremap <LocalLeader> <Nop>
 let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
 
-" gina.vim
-nnoremap <Leader>aa :<C-u>Gina status<CR>
-nnoremap <Leader>ac :<C-u>Gina commit<CR>
-
 " 履歴の数を調整
 set history=200
+
+let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.9/bin/python3'
+"let g:python3_host_prog='/usr/local/bin/python3'

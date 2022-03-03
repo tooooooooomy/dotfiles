@@ -45,9 +45,6 @@ repo = 'vim-scripts/sudo.vim'
 repo = 'thinca/vim-ref'
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -64,9 +61,6 @@ repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'maksimr/vim-jsbeautify'
 
 [[plugins]]
 repo = 'fatih/vim-go'
@@ -118,9 +112,6 @@ repo = 'roman/golden-ratio'
 
 [[plugins]]
 repo = 'ngmy/vim-rubocop'
-
-[[plugins]]
-repo = 'scrooloose/syntastic.git'
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
