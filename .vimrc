@@ -323,5 +323,5 @@ let g:maplocalleader = '\'
 " 履歴の数を調整
 set history=200
 
-let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.9/bin/python3'
+let g:python3_host_prog='/opt/homebrew/bin/python3'
 "let g:python3_host_prog='/usr/local/bin/python3'

@@ -15,16 +15,6 @@ anyenv:
 
 mac: brew_install
 
-brew_install:
-	which brew || ruby -e ${HOMEBREW}
-	brew tap homebrew/bundle
-	brew bundle
-	brew update
-
-brew_dump:
-	rm -rf Brewfile
-	brew bundle dump
-
 prezto:
 	for rcfile in ${ZDOTDIR:-$HOME}/.zprezto/runcoms/^README.md\(.N\); do\
   		ln -snf $rcfile ${ZDOTDIR:-$HOME}/.${rcfile:t}
