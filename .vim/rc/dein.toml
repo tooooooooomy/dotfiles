@@ -145,3 +145,6 @@ repo = 'hashivim/vim-terraform'
 
 [[plugins]]
 repo = 'stephpy/vim-yaml'
+
+[[plugins]]
+repo = 'mattn/vim-goimports'

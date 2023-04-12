@@ -206,6 +206,8 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias be='bundle exec'
+alias k='kubectl'
+alias g='git'
 
 ###################################################
 # own setting
@@ -248,7 +250,9 @@ setopt NO_BEEP
 zstyle ':completion:*:default' menu select=2
 
 #Go
-export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 #node
 export PATH=$PATH:./node_modules/.bin
@@ -261,11 +265,14 @@ export PATH=$PATH:/usr/local/bin:/usr/bin
 setopt EXTENDED_GLOB
 
 #Ruby
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kazushigetominaga/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kazushigetominaga/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/kazushigetominaga/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kazushigetominaga/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# for openapi generator
+# export PATH=$PATH:~/bin/openapitools/
