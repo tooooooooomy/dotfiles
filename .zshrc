@@ -265,8 +265,8 @@ export PATH=$PATH:/usr/local/bin:/usr/bin
 setopt EXTENDED_GLOB
 
 #Ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kazushigetominaga/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kazushigetominaga/Downloads/google-cloud-sdk/path.zsh.inc'; fi
