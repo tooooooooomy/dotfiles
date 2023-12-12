@@ -14,9 +14,6 @@ repo = 'groenewege/vim-less'
 repo = 'h1mesuke/vim-alignta'
 
 [[plugins]]
-repo = 'maksimr/vim-jsbeautify'
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
@@ -87,9 +84,6 @@ repo = 'thinca/vim-themis'
 repo = 'kchmck/vim-coffee-script'
 
 [[plugins]]
-repo = 'einars/js-beautify'
-
-[[plugins]]
 repo = 'vim-scripts/JSON.vim'
 
 [[plugins]]
@@ -148,3 +142,6 @@ repo = 'stephpy/vim-yaml'
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
+
+[[plugins]]
+repo = 'rhysd/vim-healthcheck'

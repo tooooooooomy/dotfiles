@@ -2,7 +2,9 @@ syntax on
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 let &t_Co=256
-colorscheme iceberg
+if has('iceberg')
+    colorscheme iceberg
+endif
 
 "-------------------------------------------------
 " Auto Reload
